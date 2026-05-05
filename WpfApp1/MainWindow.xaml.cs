@@ -24,5 +24,87 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void xor_button_Click(object sender, RoutedEventArgs e)
+        {
+            if (input.Text.Length == 0 ||
+                key.Text.Length == 0)
+            {
+                MessageBox.Show("Не введён текст или ключ");
+                return;
+            }
+            try
+            {
+                output.Text = XOR.XorEncrypt(input.Text, key.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка шифрования");
+            }
+        }
+
+        private void unxor_button_Click(object sender, RoutedEventArgs e)
+        {
+            if (input.Text.Length == 0 ||
+                key.Text.Length == 0)
+            {
+                MessageBox.Show("Не введён текст или ключ");
+                return;
+            }
+            try
+            {
+                output.Text = XOR.XorDecrypt(input.Text, key.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка расшифрования");
+            }
+        }
+
+        private void xor_button_bin_Click(object sender, RoutedEventArgs e)
+        {
+            if (input_bin.Text.Length == 0 ||
+                key_bin.Text.Length == 0)
+            {
+                MessageBox.Show("Не введён текст или ключ");
+                return;
+            }
+
+            try
+            {
+                byte[] data = Convert.FromBase64String(input_bin.Text);
+                byte[] key = Encoding.UTF8.GetBytes(key_bin.Text);
+
+                byte[] encrypted = XOR.XorEncrypt(data, key);
+                output_bin.Text = Convert.ToBase64String(encrypted);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка шифрования");
+            }
+        }
+
+        private void unxor_button_bin_Click(object sender, RoutedEventArgs e)
+        {
+            if (input_bin.Text.Length == 0 ||
+                key_bin.Text.Length == 0)
+            {
+                MessageBox.Show("Не введён текст или ключ");
+                return;
+            }
+
+            try
+            {
+                byte[] data = Convert.FromBase64String(input_bin.Text);
+                byte[] key = Encoding.UTF8.GetBytes(key_bin.Text);
+
+                byte[] encrypted = XOR.XorEncrypt(data, key);
+                output_bin.Text = Convert.ToBase64String(encrypted);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка шифрования");
+            }
+        }
     }
 }
