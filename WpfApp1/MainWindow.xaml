@@ -6,45 +6,68 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <!-- Основная сетка разметки с внешним отступом -->
     <Grid Margin="40">
         <Grid.ColumnDefinitions>
+            <!-- Левая колонка для работы с текстовыми данными -->
             <ColumnDefinition/>
+            <!-- Правая колонка для работы с бинарными данными -->
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+
+        <!-- Секция: Работа с текстовым вводом (XOR для строк) -->
         <StackPanel Grid.Column="0">
             <TextBlock Text="Text" FontSize="20" HorizontalAlignment="Center"></TextBlock>
+
+            <!-- Поле ввода исходного текста -->
             <DockPanel VerticalAlignment="Top" Margin="10">
                 <Label Content="Текст:"></Label>
                 <TextBox x:Name="input" Height="20"></TextBox>
             </DockPanel>
+
+            <!-- Поле ввода ключа шифрования -->
             <DockPanel VerticalAlignment="Top" Margin="10">
                 <Label Content="Ключ:"></Label>
                 <TextBox x:Name="key" Height="20"></TextBox>
             </DockPanel>
+
+            <!-- Кнопки управления шифрованием текста -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="xor_button" Content="Зашифровать XOR" Margin="10" Width="120" Click="xor_button_Click"></Button>
                 <Button x:Name="unxor_button" Content="Расшифровать XOR" Margin="10" Width="120" Click="unxor_button_Click"></Button>
             </StackPanel>
+
+            <!-- Поле вывода результата обработки текста -->
             <DockPanel VerticalAlignment="Top" Margin="10">
                 <Label Content="Результат:"></Label>
                 <TextBox x:Name="output" Height="20"></TextBox>
             </DockPanel>
         </StackPanel>
-        
+
+        <!-- Секция: Работа с бинарным вводом (XOR для 0 и 1) -->
         <StackPanel Grid.Column="1">
             <TextBlock Text="Binary" FontSize="20" HorizontalAlignment="Center"></TextBlock>
+
+            <!-- Поле ввода бинарной строки (например, 101010) -->
             <DockPanel VerticalAlignment="Top" Margin="10">
                 <Label Content="Данные:"></Label>
                 <TextBox x:Name="input_bin" Height="20"></TextBox>
             </DockPanel>
+
+            <!-- Поле ввода бинарного ключа -->
             <DockPanel VerticalAlignment="Top" Margin="10">
                 <Label Content="Ключ:"></Label>
                 <TextBox x:Name="key_bin" Height="20"></TextBox>
             </DockPanel>
+
+            <!-- Кнопки управления бинарным шифрованием -->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="xor_button_bin" Content="Зашифровать XOR" Margin="10" Width="120" Click="xor_button_bin_Click"></Button>
                 <Button x:Name="unxor_button_bin" Content="Расшифровать XOR" Margin="10" Width="120" Click="unxor_button_bin_Click"></Button>
             </StackPanel>
+
+            <!-- Поле вывода бинарного результата -->
             <DockPanel VerticalAlignment="Top" Margin="10">
                 <Label Content="Результат:"></Label>
                 <TextBox x:Name="output_bin" Height="20"></TextBox>
